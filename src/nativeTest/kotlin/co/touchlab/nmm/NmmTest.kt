@@ -5,12 +5,11 @@ import kotlin.test.Test
 
 class NmmTest {
     @Test
-    fun enumFreeze() {
-        val ar = AtomicReference(BasicEnum.A)
-        ar.value = BasicEnum.B
+    fun run() {
+        var c = 1
+        ThreadHelper.doInBackgroundUnfrozen {
+            c++
+        }
     }
 }
 
-enum class BasicEnum {
-    A, B, C
-}
